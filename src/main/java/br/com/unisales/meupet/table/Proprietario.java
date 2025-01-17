@@ -35,4 +35,7 @@ public class Proprietario {
 
     @Column(name = "celular", nullable = false, length = 15)
     private String celular;
+
+    @Column(name = "ativo", nullable = false)
+    private Byte ativo;
 }

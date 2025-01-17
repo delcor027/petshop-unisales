@@ -32,8 +32,8 @@ public class PetServiceTest {
     @Test
     public void testListarTodos() {
         // Criando objetos fictícios para Proprietario
-        Proprietario proprietario1 = new Proprietario(1, "João", "M", "123.456.789-01", "joao@email.com", "(11) 91234-5678");
-        Proprietario proprietario2 = new Proprietario(2, "Maria", "F", "987.654.321-01", "maria@email.com", "(11) 98765-4321");
+        Proprietario proprietario1 = new Proprietario(1, "João", "M", "123.456.789-01", "joao@email.com", "(11) 91234-5678", (byte) 1);
+        Proprietario proprietario2 = new Proprietario(2, "Maria", "F", "987.654.321-01", "maria@email.com", "(11) 98765-4321", (byte) 1);
 
         // Criando objetos fictícios para Pet
         Pet pet1 = new Pet(1, proprietario1, "Max", "2020-01-01", "M", "Cachorro", "Labrador");
@@ -51,7 +51,7 @@ public class PetServiceTest {
     @Test
     public void testBuscarPorId() {
         // Criando objetos fictícios para Proprietario
-        Proprietario proprietario = new Proprietario(1, "João", "M", "123.456.789-01", "joao@email.com", "(11) 91234-5678");
+        Proprietario proprietario = new Proprietario(1, "João", "M", "123.456.789-01", "joao@email.com", "(11) 91234-5678", (byte) 1);
 
         // Criando objetos fictícios para Pet
         Pet pet = new Pet(1, proprietario, "Max", "2020-01-01", "M", "Cachorro", "Labrador");
@@ -71,7 +71,7 @@ public class PetServiceTest {
     @Test
     public void testSalvar() {
         // Criando objetos fictícios para Proprietario
-        Proprietario proprietario = new Proprietario(1, "João", "M", "123.456.789-01", "joao@email.com", "(11) 91234-5678");
+        Proprietario proprietario = new Proprietario(1, "João", "M", "123.456.789-01", "joao@email.com", "(11) 91234-5678", (byte) 1);
 
         // Criando objetos fictícios para Pet
         Pet pet = new Pet(null, proprietario, "Max", "2020-01-01", "M", "Cachorro", "Labrador");

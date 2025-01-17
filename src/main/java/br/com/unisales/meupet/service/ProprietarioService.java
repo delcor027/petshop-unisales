@@ -15,6 +15,7 @@ public class ProprietarioService {
     private ProprietarioRepository proprietarioRepository;
 
     public List<Proprietario> listarTodos() {
+        //return proprietarioRepository.findByAtivo((byte) 1); // Retorna apenas ativos
         return proprietarioRepository.findAll();
     }
 
@@ -26,7 +27,18 @@ public class ProprietarioService {
         return proprietarioRepository.save(proprietario);
     }
 
-    public void deletar(Integer id) {
-        proprietarioRepository.deleteById(id);
+    public void ativar(Integer id) {
+        Proprietario proprietario = proprietarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Proprietário não encontrado"));
+        proprietario.setAtivo((byte) 1); // Define "ativo" como 1 (ativo)
+        proprietarioRepository.save(proprietario);
+    }
+    
+
+    public void inativar(Integer id) {
+        Proprietario proprietario = proprietarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Proprietário não encontrado"));
+        proprietario.setAtivo((byte) 0); // Define "ativo" como 0
+        proprietarioRepository.save(proprietario);
     }
 }

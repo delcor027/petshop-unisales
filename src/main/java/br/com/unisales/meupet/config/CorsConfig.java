@@ -15,7 +15,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Permite CORS em todos os endpoints
                         .allowedOrigins("http://localhost:5173") // Permite apenas o frontend React
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS") // Métodos permitidos
                         .allowedHeaders("*") // Permite todos os cabeçalhos
                         .allowCredentials(true); // Permite envio de cookies, se necessário
             }

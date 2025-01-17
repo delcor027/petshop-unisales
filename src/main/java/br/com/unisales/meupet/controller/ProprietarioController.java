@@ -33,13 +33,24 @@ public class ProprietarioController {
         return proprietarioService.salvar(proprietario);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Integer id) {
+    @PatchMapping("/ativar/{id}")
+    public ResponseEntity<Void> ativar(@PathVariable Integer id) {
         Optional<Proprietario> proprietario = proprietarioService.buscarPorId(id);
         if (proprietario.isPresent()) {
-            proprietarioService.deletar(id);
+            proprietarioService.ativar(id); // Altera o campo "ativo" para 1
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PatchMapping("/inativar/{id}")
+    public ResponseEntity<Void> inativar(@PathVariable Integer id) {
+        Optional<Proprietario> proprietario = proprietarioService.buscarPorId(id);
+        if (proprietario.isPresent()) {
+            proprietarioService.inativar(id); // Altera o campo "ativo" para 0
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+    
 }
