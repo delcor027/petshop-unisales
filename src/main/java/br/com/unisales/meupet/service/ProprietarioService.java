@@ -24,6 +24,9 @@ public class ProprietarioService {
     }
 
     public Proprietario salvar(Proprietario proprietario) {
+        if (proprietario.getAtivo() == null) {
+            proprietario.setAtivo((byte) 1); // Define como ativo por padrão
+        }
         return proprietarioRepository.save(proprietario);
     }
 
